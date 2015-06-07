@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.AdAnswerDAO">
+
+  <insert id="addAdAnswer" parameterType="AdAnswerBean">
+  	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
+        SELECT LAST_INSERT_ID() AS id 
+    </selectKey>
+    INSERT INTO gglm_ad_answer (
+    	ad_question_id 
+		,ad_answer_number
+		,ad_answer_content
+		,is_order
+		,is_correct
+		,status
+    )
+    VALUES (#{adQuestionId}, #{adAnswerNumber}, #{adAnswerContent},#{isOrder},#{isCorrect},#{status})
+  </insert>
+</mapper>

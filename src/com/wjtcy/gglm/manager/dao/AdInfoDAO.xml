@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.AdInfoDAO">
+
+  <insert id="addAdInfo" parameterType="AdInfoBean">
+  	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
+        SELECT LAST_INSERT_ID() AS id 
+    </selectKey>
+    INSERT INTO gglm_back_ad_admin (
+    	ad_content 
+		,ad_img_url 
+		,ad_url 
+		,ad_startTime 
+		,ad_endTime 
+		,ad_type
+		,ad_fund 
+		,ad_count
+		,ad_level
+		,is_confirm
+    )
+    VALUES (#{adContent}, #{adImgUrl}, #{adUrl},#{adStartTime}
+    ,#{adEndTime},#{adType},#{adFund},#{adCount},#{adLevel},#{isConfirm})
+  </insert>
+</mapper>

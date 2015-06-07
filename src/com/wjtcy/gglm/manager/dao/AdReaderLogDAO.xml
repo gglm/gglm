@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.AdReaderLogDAO">
+
+  <insert id="addAdReaderLog" parameterType="AdReaderLogBean">
+  	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
+        SELECT LAST_INSERT_ID() AS id 
+    </selectKey>
+    INSERT INTO gglm_ad_reader_log (
+    	user_id 
+		,ad_info_id 
+		,ad_info_questions_id	
+		,user_answer
+		,is_correct
+		,status
+    )
+    VALUES (#{userId}, #{adInfoId}, #{adInfoQuestionsId},#{userAnswer},#{isCorrect},#{status})
+  </insert>
+</mapper>
