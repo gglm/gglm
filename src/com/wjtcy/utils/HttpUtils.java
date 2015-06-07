@@ -6,6 +6,7 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
 
 public class HttpUtils {
+	
 	/** 请求服务器返回的Http状态码 */
 	private int iGetResultCode;
 	/** 请求服务器返回的Http回应内容 */
