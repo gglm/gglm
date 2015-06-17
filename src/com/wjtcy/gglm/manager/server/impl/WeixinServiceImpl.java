@@ -2,6 +2,7 @@ package com.wjtcy.gglm.manager.server.impl;
 
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSON;
@@ -11,6 +12,7 @@ import com.wjtcy.third.weixin.bean.OpenidBean;
 import com.wjtcy.third.weixin.constants.WeixinConstants;
 import com.wjtcy.utils.HttpUtils;
 
+@Component
 public class WeixinServiceImpl implements CommonService {
 	
 	private AccessTokenBean accessToken = new AccessTokenBean() ; 

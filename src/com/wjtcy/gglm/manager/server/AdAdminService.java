@@ -9,5 +9,5 @@ public interface AdAdminService {
 	 * @param form
 	 * @return
 	 */
-	public int regAdAdmin(RegAdAdminForm form) ;
+	public int regAdAdmin(RegAdAdminForm form,String rootPath) ;
 }

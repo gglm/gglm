@@ -1,5 +1,9 @@
 package com.wjtcy.utils;
 
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
+
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -15,6 +19,8 @@ public class HttpUtils {
 	private String errorInfo;
 	/** HttpClient对象 */	
 	private HttpClient httpclient;
+	
+	private BufferedImage imageIO ;
 	
 	public HttpUtils() {
 		httpclient = new HttpClient();
@@ -60,6 +66,43 @@ public class HttpUtils {
 			httpget.releaseConnection();
 		}
 		return false;
+	}
+	
+	public boolean executeImageDownloadMethod(String url, String param) {
+		if (url == null || url.length() <= 0) {
+			errorInfo = "无效url地址";
+			return false;
+		}
+		StringBuffer serverURL = new StringBuffer(url);
+		if (param != null && param.length() > 0) {
+			serverURL.append("?");
+			serverURL.append(param);
+		}
+		//System.out.println("serverURL=" + serverURL);
+		GetMethod httpget = new GetMethod(serverURL.toString());
+		httpget.setFollowRedirects(true);
+		try {
+			
+			iGetResultCode = httpclient.executeMethod(httpget);
+			imageIO = ImageIO.read(httpget.getResponseBodyAsStream()) ;
+			if (iGetResultCode >= 200 && iGetResultCode < 303) {
+				return true;
+			} else if (iGetResultCode >= 400 && iGetResultCode < 500) {
+				errorInfo = "请求的目标地址不存在：" + iGetResultCode;
+			} else {
+				errorInfo = "请求错误：" + iGetResultCode;
+			}
+		} catch (Exception ex) {
+			errorInfo = ex.getMessage();
+			ex.printStackTrace();
+		} finally {
+			httpget.releaseConnection();
+		}
+		return false;
+	}
+	
+	public BufferedImage getImage(){
+		return imageIO ;
 	}
 	
 	/**

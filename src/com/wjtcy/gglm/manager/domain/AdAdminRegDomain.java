@@ -13,7 +13,7 @@ public class AdAdminRegDomain {
 	private AdAdminDAO adAdminDAO ;
 	
 	/**中间结果*/
-	AdAdminBean adAdminBean ;
+	private AdAdminBean adAdminBean ;
 	
 	public AdAdminRegDomain( AdAdminDAO adAdminDAO ){
 		this.adAdminDAO = adAdminDAO ;
@@ -67,5 +67,9 @@ public class AdAdminRegDomain {
 			return 0 ;
 		}
 		return 11 ;
+	}
+	
+	public AdAdminBean getAdAdminBean(){
+		return adAdminBean ;
 	}
 }

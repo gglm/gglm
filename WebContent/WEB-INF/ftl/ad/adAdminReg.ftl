@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>广告主注册页面</title>
-<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript">
 </script>
 </head>
@@ -37,7 +37,7 @@
 				手机号：
 			</td>
 			<td>
-				<input type="text" name="mible" />
+				<input type="text" name="mobile" />
 			</td>
 			<td>
 			*

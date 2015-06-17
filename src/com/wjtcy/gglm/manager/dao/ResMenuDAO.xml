@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.ResMenuDAO">
+
+  <insert id="addResMenu" parameterType="ResMenuBean">
+  	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
+        SELECT LAST_INSERT_ID() AS id 
+    </selectKey>
+    INSERT INTO gglm_res_menu (
+    	res_id 
+		,food_name 
+		,food_desc 
+		,food_cuisine
+		,cost_price
+		,ori_price
+    )
+    VALUES (#{resId}, #{foodName}, #{foodDesc},#{foodCuisine},#{costPrice},#{oriPrice})
+  </insert>
+</mapper>

@@ -17,10 +17,11 @@ public class AdAdminController {
 	@Resource
 	private AdAdminService adAdminServiceImpl ;
 
-	@RequestMapping("adAdminReg.no")
+	@RequestMapping("ad/adAdminReg.no")
 	public String regAdAdmin(HttpServletRequest request,
 			HttpServletResponse response, ModelMap modelMap,RegAdAdminForm form) {
-		int errorCode = adAdminServiceImpl.regAdAdmin(form) ;
+		String webrootPath = request.getRealPath("/");
+		int errorCode = adAdminServiceImpl.regAdAdmin(form,webrootPath) ;
 		if( errorCode == 0 ){
 			return "ad/regSuccess" ;
 		}else{
@@ -29,7 +30,7 @@ public class AdAdminController {
 		}
 	}
 
-	@RequestMapping("gotoAdAdminReg.no")
+	@RequestMapping("ad/gotoAdAdminReg.no")
 	public String gotoRegAdAdmin(){
 		
 		return "ad/adAdminReg" ;

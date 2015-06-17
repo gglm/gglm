@@ -15,7 +15,7 @@ public interface QrcodeService {
 	 * @param sceneId
 	 * @param sceneStr
 	 */
-	public void getQrcode(int type,String sceneId,String sceneStr);
+	public void getQrcode(int type,long sceneId,String sceneStr);
 	
 
 }

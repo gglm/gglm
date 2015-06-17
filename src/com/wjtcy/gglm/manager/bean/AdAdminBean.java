@@ -1,6 +1,7 @@
 package com.wjtcy.gglm.manager.bean;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * 广告主注册用户
@@ -24,7 +25,7 @@ public class AdAdminBean implements Serializable{
 	private String realName ; 
 	
 	/**用户权限列表说明*/
-	private String privileges ;
+	private String privileges = "1";
 	
 	/**密码*/
 	private String password ;
@@ -33,10 +34,13 @@ public class AdAdminBean implements Serializable{
 	private String mobile ;
 	
 	/**座机电话*/
-	private String telephone ;
+	private String telephone = "" ;
 	
 	/**广告主类型*/
 	private int type = 1 ;
+	
+	/**广告主注册时间*/
+	private Timestamp createTime = new Timestamp(System.currentTimeMillis());
 	
 	/**是否通过审核，0未通过，1通过*/
 	private int isConfirm = 0 ;
@@ -133,6 +137,14 @@ public class AdAdminBean implements Serializable{
 
 	public void setPswComplexity(int pswComplexity) {
 		this.pswComplexity = pswComplexity;
+	}
+
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
 	}
 	
 }

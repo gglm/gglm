@@ -15,9 +15,10 @@
 		,password
 		,mobile
 		,telephone
+		,create_time
 		,is_confirm
 		,psw_complexity
     )
-    VALUES (#{userName}, #{realName}, #{privileges},#{password},#{mobile},#{telephone},#{isConfirm},#{pswComplexity})
+    VALUES (#{userName}, #{realName}, #{privileges},#{password},#{mobile},#{telephone},#{createTime},#{isConfirm},#{pswComplexity})
   </insert>
 </mapper>

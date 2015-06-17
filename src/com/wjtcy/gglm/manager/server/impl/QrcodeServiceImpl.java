@@ -1,6 +1,13 @@
 package com.wjtcy.gglm.manager.server.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.net.URLEncoder;
+
+import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
@@ -9,21 +16,30 @@ import com.wjtcy.gglm.manager.server.QrcodeService;
 import com.wjtcy.third.weixin.constants.WeixinConstants;
 import com.wjtcy.utils.HttpUtils;
 
+@Service
 public class QrcodeServiceImpl implements QrcodeService {
 
 	/**
 	 * 获取token的服务
 	 */
-	@Autowired
-	private CommonService commonService;
+	@Resource
+	private CommonService weixinServiceImpl;
+	
+	public CommonService getWeixinServiceImpl() {
+		return weixinServiceImpl;
+	}
+
+	public void setWeixinServiceImpl(CommonService weixinServiceImpl) {
+		this.weixinServiceImpl = weixinServiceImpl;
+	}
 
 	@Override
-	public void getQrcode(int type, String sceneId, String sceneStr) {
+	public void getQrcode(int type, long sceneId, String sceneStr) {
 		String qrcodeType = getQrcode(type);
 		if (StringUtils.isEmpty(qrcodeType)) {
 			return;
 		}
-		String token = commonService.weixinAdminSyn().getAccessToken();
+		String token = weixinServiceImpl.weixinAdminSyn().getAccessToken();
 		HttpUtils httpUtils = new HttpUtils();
 		JSONObject resJson = new JSONObject();
 		resJson.put("action_name", qrcodeType);
@@ -60,7 +76,15 @@ public class QrcodeServiceImpl implements QrcodeService {
 
 	public void getTicket(String ticket) {
 		HttpUtils httpUtils = new HttpUtils();
-		httpUtils.executeGetMethod(WeixinConstants.getTicketURl + ticket, null);
+		try{
+			httpUtils.executeImageDownloadMethod(WeixinConstants.getTicketURl + URLEncoder.encode(ticket,"utf-8"), null);
+			BufferedImage image = httpUtils.getImage() ;
+			File f = new File("image.jpg");
+			ImageIO.write(image, "jpg", f);
+			System.out.println(image);
+		}catch(Exception e){
+			e.printStackTrace() ;
+		}
 	}
 
 }
