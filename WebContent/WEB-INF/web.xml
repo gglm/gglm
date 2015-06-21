@@ -25,6 +25,10 @@
     <servlet-name>crust</servlet-name>
     <url-pattern>*.no</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>crust</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
   <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>com.wjtcy.gglm.manager.flter.CharacterEncodFilter</filter-class>

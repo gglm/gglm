@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.ResFoodImgDAO">
+
+	<resultMap type="ResFoodImgBean" id="ResFoodImgResult">  
+	    <id column="id" property="id" />  
+	    <result column="res_food_id" property="resFoodId"/>
+	    <result column="res_food_img" property="resFoodImg"/>
+	    <result column="rank_order" property="rankOrder"/>
+		<result column="status" property="status" />	    
+	</resultMap>
+	
+  <insert id="addFoodImg" parameterType="ResFoodImgBean">
+  	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
+        SELECT LAST_INSERT_ID() AS id 
+    </selectKey>
+    INSERT INTO gglm_res_food_img (
+    	res_food_id
+		,res_food_img
+		,rank_order
+    )
+    VALUES (#{resFoodId}, #{resFoodImg}, #{rankOrder})
+  </insert>
+  <select id="getResFoodImgByFoodId" resultMap="ResFoodImgResult" parameterType="Map" >
+  	select id,res_food_id,res_food_img,rank_order,status from gglm_res_food_img
+  	where res_food_id = #{foodId} and status=#{status}
+  </select>
+</mapper>
