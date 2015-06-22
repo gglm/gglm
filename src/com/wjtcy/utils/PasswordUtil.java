@@ -13,9 +13,13 @@ public class PasswordUtil {
 	 * @return
 	 */
 	public static String encPassword( String password ){
-		Encrypt enc = new Encrypt() ;
 		String enPassword = Md5Util.md5(password) ;
-		enPassword = enc.encode(enPassword+CommonConstants.AdAdminPasswordSalt);
+		try{
+			Encrypt enc = new Encrypt() ;
+			enPassword = enc.encrypt(enPassword+CommonConstants.AdAdminPasswordSalt);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return enPassword ;
 	}
 	
@@ -29,9 +33,13 @@ public class PasswordUtil {
 		if( null == password || "".equals(password.trim()) ){
 			return false ;
 		}
-		Encrypt enc = new Encrypt() ;
 		String enPassword = Md5Util.md5(password) ;
-		enPassword = enc.encode(enPassword+CommonConstants.AdAdminPasswordSalt);
+		try{
+			Encrypt enc = new Encrypt() ;
+			enPassword = enc.encrypt(enPassword+CommonConstants.AdAdminPasswordSalt);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		if( enPassword.equals(enPwd) ){
 			return true ;
 		}

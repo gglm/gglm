@@ -1,5 +1,8 @@
 package com.wjtcy.gglm.manager.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.wjtcy.gglm.manager.bean.ResMenuBean;
 
 public interface ResMenuDAO {
@@ -10,4 +13,11 @@ public interface ResMenuDAO {
 	 * @return
 	 */
 	public int addResMenu( ResMenuBean bean ) ;
+	
+	/**
+	 * 按条件查询
+	 * @param params
+	 * @return
+	 */
+	public List<ResMenuBean> getResMenuList( Map<String,Object> params) ;
 }

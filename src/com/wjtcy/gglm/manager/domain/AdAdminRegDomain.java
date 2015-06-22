@@ -9,58 +9,61 @@ import com.wjtcy.utils.ModelConvert;
 import com.wjtcy.utils.PhoneNumUtil;
 
 public class AdAdminRegDomain {
-
+	
 	private AdAdminDAO adAdminDAO ;
 	
 	/**中间结果*/
 	private AdAdminBean adAdminBean ;
 	
-	public AdAdminRegDomain( AdAdminDAO adAdminDAO ){
+	private RegAdAdminForm regAdminForm ;
+	
+	public AdAdminRegDomain( AdAdminDAO adAdminDAO ,RegAdAdminForm form ){
 		this.adAdminDAO = adAdminDAO ;
+		this.regAdminForm = form ;
 	}
 	
-	private int formVerify(RegAdAdminForm form){
-		if( StringUtils.isEmpty(form.getAdUserName()) ){
+	private int formVerify(){
+		if( StringUtils.isEmpty(regAdminForm.getAdUserName()) ){
 			return 1 ;
 		}
-		if( form.getAdUserName().length() < 2 || form.getAdUserName().length() > 30 ){
+		if( regAdminForm.getAdUserName().length() < 2 || regAdminForm.getAdUserName().length() > 30 ){
 			return 2 ;
 		}
-		if( StringUtils.isEmpty(form.getAdRealName()) ){
+		if( StringUtils.isEmpty(regAdminForm.getAdRealName()) ){
 			return 3 ;
 		}
-		if( form.getAdRealName().length() < 2 || form.getAdRealName().length() > 30 ){
+		if( regAdminForm.getAdRealName().length() < 2 || regAdminForm.getAdRealName().length() > 30 ){
 			return 4 ;
 		}
-		if( StringUtils.isEmpty(form.getAdPassword()) ){
+		if( StringUtils.isEmpty(regAdminForm.getAdPassword()) ){
 			return 5 ;
 		}
-		if( form.getAdPassword().length() < 6 || form.getAdPassword().length() > 20 ){
+		if( regAdminForm.getAdPassword().length() < 6 || regAdminForm.getAdPassword().length() > 20 ){
 			return 6 ;
 		}
 		
-		if( StringUtils.isEmpty(form.getConfirmPassword()) ){
+		if( StringUtils.isEmpty(regAdminForm.getConfirmPassword()) ){
 			return 7 ;
 		}
-		if( !form.getConfirmPassword().equals(form.getAdPassword() ) ){
+		if( !regAdminForm.getConfirmPassword().equals(regAdminForm.getAdPassword() ) ){
 			return 8 ;
 		}
-		if( StringUtils.isEmpty(form.getMobile()) ){
+		if( StringUtils.isEmpty(regAdminForm.getMobile()) ){
 			return 9 ;
 		}
-		if( !PhoneNumUtil.checkCellPhoneNum(form.getMobile()) ){
+		if( !PhoneNumUtil.checkCellPhoneNum(regAdminForm.getMobile()) ){
 			return 10 ;
 		}
 		
 		return 0 ;
 	}
 	
-	public int regAdAdmin(RegAdAdminForm form){
-		int errorCode = formVerify(form) ;
+	public int regAdAdmin(){
+		int errorCode = formVerify() ;
 		if( errorCode != 0 ){
 			return errorCode ;
 		}
-		AdAdminBean bean = ModelConvert.covert(form) ;
+		AdAdminBean bean = ModelConvert.convert(regAdminForm) ;
 		int row = adAdminDAO.addAdAdmin(bean) ;
 		if( row == 1 ){
 			this.adAdminBean = bean ;

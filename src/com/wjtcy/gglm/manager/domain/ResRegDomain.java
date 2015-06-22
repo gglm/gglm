@@ -11,12 +11,15 @@ public class ResRegDomain {
 	
 	private ResBean resBean ;
 	
-	public ResRegDomain(ResDAO resDAO) {
+	private RegResForm form ;
+	
+	public ResRegDomain(ResDAO resDAO,RegResForm form) {
 		this.resDAO = resDAO ;
+		this.form = form ;
 	}
 
-	public int regRes(RegResForm form){
-		ResBean bean = ModelConvert.covert(form) ;
+	public int regRes(){
+		ResBean bean = ModelConvert.convert(form) ;
 		int row = resDAO.regRes(bean) ;
 		if( row == 1 ){
 			resBean = bean ;

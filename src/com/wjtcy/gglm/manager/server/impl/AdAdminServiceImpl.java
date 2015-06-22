@@ -25,18 +25,25 @@ public class AdAdminServiceImpl implements AdAdminService {
 
 	@Override
 	public int regAdAdmin(RegAdAdminForm form, String rootPath) {
-		AdAdminRegDomain domain = new AdAdminRegDomain(adAdminDAO);
-		int errorCode = domain.regAdAdmin(form);
+		AdAdminRegDomain domain = new AdAdminRegDomain(adAdminDAO,form);
+		int errorCode = domain.regAdAdmin();
 		if (errorCode == 0) {// 注册成功
 			// 1.生成二维码
-			Encrypt enc = new Encrypt();
-			UUID uuid = UUID.randomUUID();
-			String imagePath = rootPath + File.separator + "img"
-					+ File.separator + "qr" + File.separator + "ad"
-					+ File.separator + uuid + ".jpg";
-			String ad_id = enc.encode(domain.getAdAdminBean().getId() + "");
-			String qrUrl = "ad/admin/qr.do?ad_id=" + ad_id;
-			qrcodeComponent.generateQrcode(qrUrl, imagePath);
+			Encrypt enc;
+			try {
+				enc = new Encrypt();
+				UUID uuid = UUID.randomUUID();
+				String imagePath = rootPath + File.separator + "img"
+						+ File.separator + "qr" + File.separator + "ad"
+						+ File.separator + uuid + ".jpg";
+				String ad_id = enc.encrypt(domain.getAdAdminBean().getId() + "");
+				String qrUrl = "ad/admin/qr.do?ad_id=" + ad_id;
+				qrcodeComponent.generateQrcode(qrUrl, imagePath);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			// 2.生成地理信息
 			// TODO
 		}

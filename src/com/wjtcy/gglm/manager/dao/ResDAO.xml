@@ -3,17 +3,36 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.wjtcy.gglm.manager.dao.ResDAO">
-
+	<resultMap type="ResBean" id="resResult">  
+	    <id column="id" property="id" />  
+	    <result column="city_id" property="cityId"/>
+	    <result column="area_id" property="areaId"/>
+	    <result column="res_name" property="resName"/>
+	    <result column="res_phone" property="resPhone"/>
+		<result column="res_owner" property="resOwner" />	  
+		<result column="res_addr" property="resAddr" />
+		<result column="status" property="status" />  
+	</resultMap>
   <insert id="regRes" parameterType="ResBean">
   	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
         SELECT LAST_INSERT_ID() AS id 
     </selectKey>
     INSERT INTO gglm_res (
-    	res_name
+    	city_id
+    	,area_id
+    	,res_name
   		,res_phone 
   		,res_owner
   		,res_addr
     )
-    VALUES (#{resName}, #{resPhone}, #{resOwner},#{resAddr})
+    VALUES (#{cityId}, #{areaId}, #{resName}, #{resPhone}, #{resOwner},#{resAddr})
   </insert>
+  <select id="getResList" resultMap="resResult"  parameterType="Map">
+  	select id,city_id,area_id,res_name,res_phone,res_owner,res_addr,status from gglm_res
+  	where city_id = #{cityId} and area_id = #{areaId} and status = #{status}
+  </select>
+  <select id="getResById" resultMap="resResult" parameterType="Map">
+  	select id,city_id,area_id,res_name,res_phone,res_owner,res_addr,status from gglm_res
+  	where status = #{status} and id = #{resId}
+  </select>
 </mapper>

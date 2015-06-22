@@ -1,18 +1,15 @@
-package com.wjtcy.gglm.manager.bean;
+package com.wjtcy.gglm.manager.show;
 
 import java.io.Serializable;
 
-/**
- * 饭店
- * @author lyg
- *
- */
-public class ResBean implements Serializable{
+import com.wjtcy.gglm.manager.encrypt.Encrypt;
+
+public class ResShow implements Serializable {
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1827402353646684697L;
+	private static final long serialVersionUID = -6817087567070292358L;
 
 	private int id ;
 	
@@ -33,6 +30,8 @@ public class ResBean implements Serializable{
 	
 	/**饭店地址*/
 	private String resAddr ;
+	
+	private String idEnc ;
 	
 	private int status = 0 ;
 
@@ -100,4 +99,15 @@ public class ResBean implements Serializable{
 		this.status = status;
 	}
 	
+	public String getIdEnc(){
+		Encrypt enc;
+		try {
+			enc = new Encrypt();
+			idEnc = enc.encrypt(id+"") ;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return idEnc ;
+	}
 }
