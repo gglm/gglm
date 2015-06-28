@@ -30,7 +30,7 @@ public class ServiceTest {
 	@Test
 	public void test3(){
 		QrcodeComponent qr = new QrcodeComponent() ;
-		qr.generateQrcode("http://www.linshituan.com/advertiser/", "/Users/lyg/tmp/ad_1.jpg") ;
+		qr.generateQrcode("http://www.linshituan.com/advertiser/", "/Users/lyg/tmp/123123123.jpg") ;
 		System.out.println();
 	}
 }

@@ -86,8 +86,8 @@ public class ResServiceImpl implements ResService{
 		List<ResMenuShow> showList = new ArrayList<ResMenuShow>() ;
 		List<ResShow> result = new ArrayList<ResShow>() ;
 		Map<String,Object> params = new HashMap<String,Object>() ;
-		params.put("cityId", 100) ;
-		params.put("areaId", 1) ;
+		params.put("cityId", 1) ;
+		params.put("areaId", 0) ;
 		params.put("status", 0) ;
 		List<ResBean> resList = resDAO.getResList(params) ;
 		if( null != result ){

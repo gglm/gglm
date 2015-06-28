@@ -17,6 +17,8 @@ public class AdAdminRegDomain {
 	
 	private RegAdAdminForm regAdminForm ;
 	
+	private int errorCode = 0 ;
+	
 	public AdAdminRegDomain( AdAdminDAO adAdminDAO ,RegAdAdminForm form ){
 		this.adAdminDAO = adAdminDAO ;
 		this.regAdminForm = form ;
@@ -59,7 +61,7 @@ public class AdAdminRegDomain {
 	}
 	
 	public int regAdAdmin(){
-		int errorCode = formVerify() ;
+		errorCode = formVerify() ;
 		if( errorCode != 0 ){
 			return errorCode ;
 		}
@@ -67,12 +69,18 @@ public class AdAdminRegDomain {
 		int row = adAdminDAO.addAdAdmin(bean) ;
 		if( row == 1 ){
 			this.adAdminBean = bean ;
+			errorCode = 0 ;
 			return 0 ;
 		}
-		return 11 ;
+		errorCode = 11 ;
+		return  errorCode;
 	}
 	
 	public AdAdminBean getAdAdminBean(){
 		return adAdminBean ;
+	}
+	
+	public int getErrorCode(){
+		return errorCode ;
 	}
 }

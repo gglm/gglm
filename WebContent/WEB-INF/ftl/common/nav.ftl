@@ -12,8 +12,8 @@
 			</a>
 		</li>
 		<li>
-			<a href="blog.html">
-				<i class="fa fa-pencil-square-o"></i>Blog
+			<a href="resMenuList.html">
+				<i class="fa fa-pencil-square-o"></i>菜单列表
 			</a>
 			<ul>
 				<li><a href="blog-single-post.html"><i class="fa fa-pencil-square-o"></i>First Post</a></li>

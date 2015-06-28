@@ -45,6 +45,17 @@
 		</tr>
 		<tr>
 			<td>
+				店面地址：
+			</td>
+			<td>
+				<input type="text" name="addr" />	
+			</td>
+			<td>
+			*
+			</td>
+		</tr>
+		<tr>
+			<td>
 				密码：
 			</td>
 			<td>

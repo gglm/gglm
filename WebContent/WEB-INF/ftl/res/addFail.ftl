@@ -8,6 +8,6 @@
 </script>
 </head>
 <body>
-添加失败！${errorCode}
+添加失败！
 </body>
 </html>

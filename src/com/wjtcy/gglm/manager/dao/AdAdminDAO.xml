@@ -3,6 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.wjtcy.gglm.manager.dao.AdAdminDAO">
+	<resultMap type="AdAdminBean" id="adAdminResult">  
+	    <id column="id" property="id" />  
+	    <result column="user_name" property="userName"/>
+	    <result column="real_name" property="realName"/>
+	    <result column="addr" property="addr"/>
+	    <result column="privileges" property="privileges"/>
+		<result column="mobile" property="mobile" />	  
+		<result column="telephone" property="telephone" />
+		<result column="create_time" property="createTime" />  
+		<result column="is_confirm" property="isConfirm" />
+		<result column="psw_complexity" property="pswComplexity" />
+		<result column="status" property="status" />
+	</resultMap>
 
   <insert id="addAdAdmin" parameterType="AdAdminBean">
   	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
@@ -11,6 +24,7 @@
     INSERT INTO gglm_back_ad_admin (
     	user_name
 		,real_name
+		,addr
 		,privileges 
 		,password
 		,mobile
@@ -19,6 +33,23 @@
 		,is_confirm
 		,psw_complexity
     )
-    VALUES (#{userName}, #{realName}, #{privileges},#{password},#{mobile},#{telephone},#{createTime},#{isConfirm},#{pswComplexity})
+    VALUES (#{userName}, #{realName},#{addr}, #{privileges},#{password},#{mobile},#{telephone},#{createTime},#{isConfirm},#{pswComplexity})
   </insert>
+  <select id="getUnapprAdAdmin" parameterType="Map" resultMap="adAdminResult">
+  	select id ,user_name
+		,real_name
+		,addr
+		,privileges 
+		,password
+		,mobile
+		,telephone
+		,create_time
+		,is_confirm
+		,psw_complexity
+		,status from gglm_back_ad_admin
+		 where status=#{status} and is_confirm=#{isConfirm}
+  </select>
+  <update id="updateAdAdminConfirm" parameterType="int" >
+  	update gglm_back_ad_admin set is_confirm =1 where id=#{id}
+  </update>
 </mapper>

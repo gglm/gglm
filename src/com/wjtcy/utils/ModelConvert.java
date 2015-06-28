@@ -30,6 +30,7 @@ public class ModelConvert {
 		bean.setRealName(form.getAdRealName());
 		bean.setUserName(form.getAdUserName());
 		bean.setPswComplexity(PasswordUtil.pswdStrength(form.getAdPassword()));
+		bean.setAddr(form.getAddr());
 		return bean ;
 	}
 	

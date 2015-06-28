@@ -32,19 +32,19 @@
 				<div class="overlay"></div>
 				<div class="s-banner-content">
 					<div><img  width="100" src="img/logo-pages.svg" /></div>
-					<i class="fa fa-th-list"></i> Products
+					<i class="fa fa-th-list"></i> 菜单列表
 				</div>
 			</div>
 			<div id="content">
 				<#if ( resMenuList?? && resMenuList?size > 0 ) >
 				<#list resMenuList as menu >
 				<article>
-					<a href="product-single.html">
+					<a href="food.html">
 						<div class="article-img-pane">
 							<img src="img/gallery/4.jpg" />
 						</div>
 						<h2>${menu.foodName}</h2>
-						<h2>${menu.resBean.resAddr}</h2>
+						<h2>${menu.resShow.resAddr}</h2>
 						<div class="prod-pricePane">
 							<span class="last-price">${menu.oriPrice}</span>
 							<span class="currency">￥</span>
@@ -59,7 +59,7 @@
 			</div>
 			<div class="subFooter">Copyright 2015. All rights reserved.</div>
 				
-			<#include "res/menuList" >		
+			<#include "/common/nav.ftl" >		
 		</div>
 	</body>
 </html>

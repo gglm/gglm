@@ -10,11 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.wjtcy.gglm.manager.encrypt.Encrypt;
 import com.wjtcy.gglm.manager.form.AddResMenuForm;
 import com.wjtcy.gglm.manager.form.RegResForm;
 import com.wjtcy.gglm.manager.server.ResService;
-import com.wjtcy.gglm.manager.show.ResMenuShow;
 import com.wjtcy.gglm.manager.show.ResShow;
 
 /**

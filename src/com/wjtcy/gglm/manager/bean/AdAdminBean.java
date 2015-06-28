@@ -27,6 +27,9 @@ public class AdAdminBean implements Serializable{
 	/**用户权限列表说明*/
 	private String privileges = "1";
 	
+	/**广告用户地址信息*/
+	private String addr ;
+	
 	/**密码*/
 	private String password ;
 	
@@ -81,6 +84,14 @@ public class AdAdminBean implements Serializable{
 
 	public void setPrivileges(String privileges) {
 		this.privileges = privileges;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public String getPassword() {

@@ -11,6 +11,8 @@ public class RegAdAdminForm {
 	
 	private String adRealName ;
 	
+	private String addr ;
+	
 	private String adPassword ;
 	
 	private String confirmPassword ;
@@ -31,6 +33,14 @@ public class RegAdAdminForm {
 
 	public void setAdRealName(String adRealName) {
 		this.adRealName = adRealName;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public String getAdPassword() {
