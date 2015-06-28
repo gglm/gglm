@@ -6,18 +6,19 @@
 	<resultMap type="GoodsDetailBean" id="GoodsDetailResult">  
 	    <id column="id" property="id" />  
 	    <result column="shop_id" property="shopId"/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    <result column="" property=""/>
-	    
+	    <result column="goods_name" property="goodsName"/>
+	    <result column="goods_desc" property="goodsDesc"/>
+	    <result column="goods_type" property="goodsType"/>
+	    <result column="cost_price" property="costPrice"/>
+	    <result column="ori_price" property="oriPrice"/>
+	    <result column="back_money" property="backMoney"/>
+	    <result column="create_time" property="createTime"/>
+	    <result column="begin_time" property="beginTime"/>
+	    <result column="end_time" property="endTime"/>
+	    <result column="goods_count" property="goodsCount"/>
+	    <result column="goods_sell_num" property="goodsSellNum"/>
+	    <result column="is_confirm" property="isConfirm"/>
+	    <result column="status" property="status"/>
 	</resultMap>
 
   <insert id="addGoodsDetail" parameterType="GoodsDetailBean">
@@ -25,8 +26,7 @@
         SELECT LAST_INSERT_ID() AS id 
     </selectKey>
     INSERT INTO gglm_goods (
-    	id
-    	,shop_id
+    	shop_id
 		,goods_name
 		,goods_desc
 		,goods_type

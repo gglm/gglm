@@ -1,9 +1,15 @@
 package com.wjtcy.gglm.manager.bean;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class GoodsDetailBean {
+public class GoodsDetailBean implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4604353760375203428L;
+
 	private int id ;
 	
 	/**门店Id*/
@@ -46,7 +52,7 @@ public class GoodsDetailBean {
 	private Integer isConfirm ;
 	
 	/** 是否有效，0：有效，1：无效 */
-	private Integer status ;
+	private Integer status = 0;
 
 	public int getId() {
 		return id;

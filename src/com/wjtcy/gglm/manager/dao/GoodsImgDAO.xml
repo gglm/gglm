@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.GoodsImgDAO">
+	<resultMap type="GoodsImgBean" id="GoodsImgResult">  
+	    <id column="id" property="id" />  
+	    <result column="goods_id" property="goodsId"/>
+	    <result column="img_uri" property="imgUri"/>
+	    <result column="rank_order" property="rankOrder"/>
+	    <result column="type" property="type"/>
+	    <result column="status" property="status"/>
+	</resultMap>
+
+  <insert id="addGoodsImg" parameterType="GoodsDetailBean">
+  	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
+        SELECT LAST_INSERT_ID() AS id 
+    </selectKey>
+    INSERT INTO gglm_goods_img (
+    	goods_id
+		,img_uri
+		,rank_order
+		,type
+		,status
+    )
+    VALUES (#{goodsId}, #{imgUri},#{rankOrder}, #{type},#{status})
+  </insert>
+  <select id="getGoodsImgList" parameterType="Map" resultMap="GoodsImgResult">
+  	select id
+    	,goods_id
+		,img_uri
+		,rank_order
+		,type
+		,status from gglm_goods_img
+		 where status=#{status}
+  </select>
+</mapper>
