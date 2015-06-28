@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.GoodsDetailDAO">
+	<resultMap type="GoodsDetailBean" id="GoodsDetailResult">  
+	    <id column="id" property="id" />  
+	    <result column="shop_id" property="shopId"/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    <result column="" property=""/>
+	    
+	</resultMap>
+
+  <insert id="addGoodsDetail" parameterType="GoodsDetailBean">
+  	<selectKey resultType="int" order="AFTER" keyProperty="id"> 
+        SELECT LAST_INSERT_ID() AS id 
+    </selectKey>
+    INSERT INTO gglm_goods (
+    	id
+    	,shop_id
+		,goods_name
+		,goods_desc
+		,goods_type
+		,cost_price
+		,ori_price
+		,back_money
+		,create_time
+		,begin_time
+		,end_time
+		,goods_count
+		,goods_sell_num
+		,is_confirm
+		,status
+    )
+    VALUES (#{shopId}, #{goodsName},#{goodsDesc}, #{goodsType},#{costPrice},#{oriPrice}
+    ,#{backMoney},#{createTime},#{beginTime},#{endTime},#{goodsCount},#{goodsSellNum},#{isConfirm}
+    ,#{status})
+  </insert>
+  <select id="getGoodsDetailList" parameterType="Map" resultMap="GoodsDetailResult">
+  	select id
+    	,shop_id
+		,goods_name
+		,goods_desc
+		,goods_type
+		,cost_price
+		,ori_price
+		,back_money
+		,create_time
+		,begin_time
+		,end_time
+		,goods_count
+		,goods_sell_num
+		,is_confirm
+		,status from gglm_goods
+		 where status=#{status} and is_confirm=#{isConfirm}
+  </select>
+</mapper>
