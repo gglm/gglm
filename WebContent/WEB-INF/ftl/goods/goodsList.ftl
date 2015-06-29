@@ -5,7 +5,7 @@
 		<meta name="author" content="www.frebsite.nl" />
 		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
 
-		<title>菜单</title>
+		<title>商品列表</title>
 		<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
 		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
@@ -36,19 +36,23 @@
 				</div>
 			</div>
 			<div id="content">
-				<#if ( resMenuList?? && resMenuList?size > 0 ) >
-				<#list resMenuList as menu >
+				<#if ( goodsList?? && goodsList?size > 0 ) >
+				<#list goodsList as goods >
 				<article>
 					<a href="food.html">
 						<div class="article-img-pane">
-							<img src="img/gallery/4.jpg" />
+							<#list goods.goodsImgList as goodsImg >
+							<#if ( goodsImg.type == 2 ) >
+							<img src="${goodsImg.imgUri}" />
+							</#if>
+							</#list>
 						</div>
-						<h2>${menu.foodName}</h2>
-						<h2>${menu.resShow.resAddr}</h2>
+						<h2>${goods.goodsDetail.goodsName}</h2>
+						<h2>${goods.goodsDetail.goodsDesc}</h2>
 						<div class="prod-pricePane">
-							<span class="last-price">${menu.oriPrice}</span>
+							<span class="last-price">${goods.goodsDetail.oriPrice}</span>
 							<span class="currency">￥</span>
-							<span class="current-price">${menu.costPrice}</span>
+							<span class="current-price">${goods.goodsDetail.costPrice}</span>
 						</div>
 					</a>
 					<div class="a-meta">

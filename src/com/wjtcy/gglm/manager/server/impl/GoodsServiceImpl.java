@@ -69,6 +69,7 @@ public class GoodsServiceImpl implements GoodsService {
 				GoodsDetailShow goodsShow = new GoodsDetailShow() ;
 				goodsShow.setGoodsDetail(g) ;
 				goodsShow.setGoodsImgList(goodsImgMap.get(goodsId));
+				goodsShowList.add(goodsShow) ;
 			}
 			
 		}
