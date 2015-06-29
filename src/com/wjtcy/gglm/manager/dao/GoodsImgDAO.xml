@@ -33,5 +33,11 @@
 		,type
 		,status from gglm_goods_img
 		 where status=#{status}
+		 <if test="goodsIdList != null and goodsIdList.size > 0">
+		 and goods_id in 
+		 <foreach collection="goodsIdList" item="goodsId" index="index" open="(" close=")" separator=",">
+            #{goodsId}
+        </foreach>
+        </if>
   </select>
 </mapper>

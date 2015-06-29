@@ -27,6 +27,8 @@
     </selectKey>
     INSERT INTO gglm_goods (
     	shop_id
+    	,city_id 
+    	,area_id
 		,goods_name
 		,goods_desc
 		,goods_type
@@ -41,13 +43,15 @@
 		,is_confirm
 		,status
     )
-    VALUES (#{shopId}, #{goodsName},#{goodsDesc}, #{goodsType},#{costPrice},#{oriPrice}
+    VALUES (#{shopId},#{cityId},#{areaId} #{goodsName},#{goodsDesc}, #{goodsType},#{costPrice},#{oriPrice}
     ,#{backMoney},#{createTime},#{beginTime},#{endTime},#{goodsCount},#{goodsSellNum},#{isConfirm}
     ,#{status})
   </insert>
   <select id="getGoodsDetailList" parameterType="Map" resultMap="GoodsDetailResult">
   	select id
     	,shop_id
+    	,city_id
+    	,area_id
 		,goods_name
 		,goods_desc
 		,goods_type
@@ -61,6 +65,13 @@
 		,goods_sell_num
 		,is_confirm
 		,status from gglm_goods
-		 where status=#{status} and is_confirm=#{isConfirm}
+		 where status=#{status} and is_confirm=#{isConfirm} 
+		 <if test="cityId != null">
+		 	and city_id = #{cityId}
+		 </if>
+		 <if test="areaId != null ">
+		 	and area_id = #{areaId}
+		 </if>
+		 limit #{offset},#{rows}
   </select>
 </mapper>

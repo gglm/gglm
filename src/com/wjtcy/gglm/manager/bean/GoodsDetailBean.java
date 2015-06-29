@@ -15,6 +15,12 @@ public class GoodsDetailBean implements Serializable {
 	/**门店Id*/
 	private Integer shopId ;
 	
+	/** 城市Id */
+	private Integer cityId ;
+	
+	/**商圈id*/
+	private Integer areaId ;
+	
 	/** 商品名称 */
 	private String goodsName ;
 	
@@ -68,6 +74,22 @@ public class GoodsDetailBean implements Serializable {
 
 	public void setShopId(Integer shopId) {
 		this.shopId = shopId;
+	}
+
+	public Integer getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(Integer cityId) {
+		this.cityId = cityId;
+	}
+
+	public Integer getAreaId() {
+		return areaId;
+	}
+
+	public void setAreaId(Integer areaId) {
+		this.areaId = areaId;
 	}
 
 	public String getGoodsName() {

@@ -19,12 +19,6 @@ public class IndexController {
 	@Resource
 	private ResService resServiceImpl ;
 	
-	@RequestMapping("index.html")
-	public String index(HttpServletRequest request,
-			HttpServletResponse response, ModelMap modelMap) {
-		
-		return "index";
-	}
 
 	@RequestMapping("resMenuList.html")
 	public String menuList(HttpServletRequest request,
