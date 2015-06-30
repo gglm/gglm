@@ -74,4 +74,26 @@
 		 </if>
 		 limit #{offset},#{rows}
   </select>
+  
+  <select id="getGoodsDetailById" parameterType="Map" resultMap="GoodsDetailResult">
+  	select id
+    	,shop_id
+    	,city_id
+    	,area_id
+		,goods_name
+		,goods_desc
+		,goods_type
+		,cost_price
+		,ori_price
+		,back_money
+		,create_time
+		,begin_time
+		,end_time
+		,goods_count
+		,goods_sell_num
+		,is_confirm
+		,status from gglm_goods
+		 where status=#{status} and is_confirm=#{isConfirm} and id = #{goodsId}
+  </select>
+  
 </mapper>

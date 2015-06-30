@@ -76,4 +76,24 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsShowList ;
 	}
 
+	@Override
+	public GoodsDetailShow getGoodsDetail(int goodsId) {
+		GoodsDetailShow goodsShow = new GoodsDetailShow() ;
+		Map<String,Object> params = new HashMap<String,Object>() ;
+		params.put("status", 0) ;
+		params.put("isConfirm", 1) ;
+		params.put("goodsId", goodsId) ;
+		GoodsDetailBean goodsBean = goodsDetailDAO.getGoodsDetailById(params) ;
+		if( null == goodsBean ){
+			return null ;
+		}
+		goodsShow.setGoodsDetail(goodsBean); 
+		Map<String,Object> imgParams = new HashMap<String,Object>() ;
+		imgParams.put("status", 0) ;
+		imgParams.put("goodsId", goodsId) ;
+		List<GoodsImgBean> goodsImgList = goodsImgDAO.getGoodsImgListByGoodsId(imgParams) ;
+		goodsShow.setGoodsImgList(goodsImgList); 
+		return goodsShow;
+	}
+
 }

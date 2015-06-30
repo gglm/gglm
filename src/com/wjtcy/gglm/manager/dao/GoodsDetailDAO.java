@@ -21,4 +21,11 @@ public interface GoodsDetailDAO {
 	 * @return
 	 */
 	public List<GoodsDetailBean> getGoodsDetailList( Map<String,Object> params ) ;
+	
+	/**
+	 * 根据id获取商品详情
+	 * @param params
+	 * @return
+	 */
+	public GoodsDetailBean getGoodsDetailById( Map<String,Object> params ) ;
 }

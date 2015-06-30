@@ -14,4 +14,6 @@ public interface GoodsService {
 	 * @return
 	 */
 	public List<GoodsDetailShow> getGoodsList(Integer cityId,Integer areaId,int pageNo,int pageCount) ;
+
+	public GoodsDetailShow getGoodsDetail( int goodsId ) ;
 }

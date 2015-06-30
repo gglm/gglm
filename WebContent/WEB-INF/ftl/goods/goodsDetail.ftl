@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="content-type" content="text/html;charset=gbk" />
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<meta name="author" content="www.frebsite.nl" />
 		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
 
-		<title>食物</title>
+		<title>商品详情</title>
 		<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
 		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
@@ -37,159 +37,37 @@
 				<div class="overlay"></div>
 				<div class="s-banner-content">
 					<div><img  width="100" src="img/logo-pages.svg" /></div>
-					<i class="fa fa-picture-o"></i> Gallery
+					<i class="fa fa-picture-o"></i> 商品详情
 				</div>
 			</div>
 			
 			<div class="content">
-			
+			<#if goodsDetail?? >
 				<div id="Gallery">
 					<div class="gallery-row">
 						
 						<div id="PGalleryTwoC" class="row">
 							<br/>
-							<h3 class="title"><i class="fa fa-picture-o"></i> Photo Gallery 2 Columns</h3>
+							<h3 class="title"><i class="fa fa-picture-o"></i>${goodsDetail.goodsDetail.goodsName}</h3>
+							<#list goodsDetail.goodsImgList as goodsImg >
 							<div class="mobile-two">
 								<div class="gallery-item">
-									<a href="img/gallery/1.jpg" rel="external">
-										<img src="img/gallery/1-th.jpg" alt="Image 001" />
-									</a>
-								</div>
-								<div class="gallery-item">
-									<a href="img/gallery/2.jpg" rel="external">
-										<img src="img/gallery/2-th.jpg" alt="Image 002" />
-									</a>
-								</div>	
-								<div class="gallery-item">
-									<a href="img/gallery/3.jpg" rel="external">
-										<img src="img/gallery/3-th.jpg" alt="Image 001" />
-									</a>
+									<#if ( goodsImg.type == 2 ) >
+									<img src="${goodsImg.imgUri}" alt="美食" />
+									</#if>
 								</div>
 							</div>
-							<div class="mobile-two">
-								<div class="gallery-item">
-									<a href="img/gallery/4.jpg" rel="external">
-										<img src="img/gallery/4-th.jpg" alt="Image 002" />
-									</a>
-								</div>	
-								<div class="gallery-item">
-									<a href="img/gallery/5.jpg" rel="external">
-										<img src="img/gallery/5-th.jpg" alt="Image 002" />
-									</a>
-								</div>	
-								<div class="gallery-item">
-									<a href="img/gallery/1.jpg" rel="external">
-										<img src="img/gallery/1-th.jpg" alt="Image 002" />
-									</a>
-								</div>		
-							</div>
+							</#list>
 						</div>		
-						<div id="PGalleryThreeC" class="row treeColumns">
-							<br/>
-							<h3 class="title"><i class="fa fa-picture-o"></i> Photo Gallery 3 Columns</h3>
-							<div class="gallery-item">
-								<a href="img/gallery/1.jpg" rel="external">
-									<img src="img/gallery/1-th.jpg" alt="Image 001" />
-								</a>
-							</div>
-							<div class="gallery-item">
-								<a href="img/gallery/2.jpg" rel="external">
-									<img src="img/gallery/2-th.jpg" alt="Image 002" />
-								</a>
-							</div>	
-							<div class="gallery-item">
-								<a href="img/gallery/3.jpg" rel="external">
-									<img src="img/gallery/3-th.jpg" alt="Image 001" />
-								</a>
-							</div>
-							<div class="gallery-item">
-								<a href="img/gallery/4.jpg" rel="external">
-									<img src="img/gallery/4-th.jpg" alt="Image 002" />
-								</a>
-							</div>	
-							<div class="gallery-item">
-								<a href="img/gallery/5.jpg" rel="external">
-									<img src="img/gallery/5-th.jpg" alt="Image 002" />
-								</a>
-							</div>	
-							<div class="gallery-item">
-								<a href="img/gallery/2.jpg" rel="external">
-									<img src="img/gallery/2-th.jpg" alt="Image 002" />
-								</a>
-							</div>	
-							<div class="gallery-item">
-								<a href="img/gallery/3.jpg" rel="external">
-									<img src="img/gallery/3-th.jpg" alt="Image 001" />
-								</a>
-							</div>
-							<div class="gallery-item">
-								<a href="img/gallery/4.jpg" rel="external">
-									<img src="img/gallery/4-th.jpg" alt="Image 002" />
-								</a>
-							</div>	
-							<div class="gallery-item">
-								<a href="img/gallery/5.jpg" rel="external">
-									<img src="img/gallery/5-th.jpg" alt="Image 002" />
-								</a>
-							</div>	
-						</div>
 						
-						<div id="PGalleryFourC" class="row">
-							<br/>
-							<h3 class="title"><i class="fa fa-picture-o"></i> Photo Gallery 4 Columns</h3>
-							<div class="mobile-one">
-								<div class="gallery-item">
-									<a href="img/gallery/1.jpg" rel="external">
-										<img src="img/gallery/1-th.jpg" alt="Image 001" />
-									</a>
-								</div>
-								<div class="gallery-item">
-									<a href="img/gallery/1.jpg" rel="external">
-										<img src="img/gallery/1-th.jpg" alt="Image 002" />
-									</a>
-								</div>	
-							</div>
-							<div class="mobile-one">
-								<div class="gallery-item">
-									<a href="img/gallery/3.jpg" rel="external">
-										<img src="img/gallery/3-th.jpg" alt="Image 001" />
-									</a>
-								</div>
-								<div class="gallery-item">
-									<a href="img/gallery/3.jpg" rel="external">
-										<img src="img/gallery/3-th.jpg" alt="Image 002" />
-									</a>
-								</div>	
-							</div>
-							<div class="mobile-one">
-								<div class="gallery-item">
-									<a href="img/gallery/2.jpg" rel="external">
-										<img src="img/gallery/2-th.jpg" alt="Image 001" />
-									</a>
-								</div>
-								<div class="gallery-item">
-									<a href="img/gallery/2.jpg" rel="external">
-										<img src="img/gallery/2-th.jpg" alt="Image 002" />
-									</a>
-								</div>	
-							</div>
-							<div class="mobile-one">
-								<div class="gallery-item">
-									<a href="img/gallery/4.jpg" rel="external">
-										<img src="img/gallery/4-th.jpg" alt="Image 001" />
-									</a>
-								</div>
-								<div class="gallery-item">
-									<a href="img/gallery/4.jpg" rel="external">
-										<img src="img/gallery/4-th.jpg" alt="Image 002" />
-									</a>
-								</div>	
-							</div>
-						</div>	
-				
 					</div>
 				</div>
-				
+				<div class="prod-pricePane">
+					<span class="last-price">${goodsDetail.goodsDetail.oriPrice}</span>
+					<span class="currency">￥</span>
+					<span class="current-price">${goodsDetail.goodsDetail.costPrice}</span>
+				</div>
+			</#if>
 			</div>
 			
 			

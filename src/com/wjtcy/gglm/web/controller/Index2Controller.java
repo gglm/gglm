@@ -39,4 +39,14 @@ public class Index2Controller {
 		modelMap.put("goodsList", goodsList) ;
 		return "goods/goodsList" ;
 	}
+	
+	@RequestMapping("goodsDetail.html")
+	public String goodsDetail( HttpServletRequest request,
+			HttpServletResponse response,ModelMap modelMap ){
+		String goodsIdStr = request.getParameter("id") ;
+		int goodsId = NumberUtils.parseInt(goodsIdStr, 0) ;
+		GoodsDetailShow goods = goodsServiceImpl.getGoodsDetail(goodsId) ;
+		modelMap.put("goodsDetail", goods) ;
+		return "goods/goodsDetail" ;
+	}
 }

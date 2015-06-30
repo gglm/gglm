@@ -21,4 +21,11 @@ public interface GoodsImgDAO {
 	 * @return
 	 */
 	public List<GoodsImgBean> getGoodsImgList( Map<String,Object> params ) ;
+	
+	/**
+	 * 根据商品id获取商品图片
+	 * @param params
+	 * @return
+	 */
+	public List<GoodsImgBean> getGoodsImgListByGoodsId( Map<String,Object> params ) ;
 }

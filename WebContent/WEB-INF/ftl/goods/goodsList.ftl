@@ -32,14 +32,14 @@
 				<div class="overlay"></div>
 				<div class="s-banner-content">
 					<div><img  width="100" src="img/logo-pages.svg" /></div>
-					<i class="fa fa-th-list"></i> 菜单列表
+					<i class="fa fa-th-list"></i> 商品列表
 				</div>
 			</div>
 			<div id="content">
 				<#if ( goodsList?? && goodsList?size > 0 ) >
 				<#list goodsList as goods >
 				<article>
-					<a href="food.html">
+					<a href="goodsDetail.html?id=${goods.goodsDetail.id}">
 						<div class="article-img-pane">
 							<#list goods.goodsImgList as goodsImg >
 							<#if ( goodsImg.type == 2 ) >

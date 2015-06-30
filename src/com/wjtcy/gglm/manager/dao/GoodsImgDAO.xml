@@ -40,4 +40,13 @@
         </foreach>
         </if>
   </select>
+  <select id="getGoodsImgListByGoodsId" parameterType="Map" resultMap="GoodsImgResult">
+  	select id
+    	,goods_id
+		,img_uri
+		,rank_order
+		,type
+		,status from gglm_goods_img
+		 where status=#{status} and goods_id =#{goodsId}
+  </select>
 </mapper>
