@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.GoodsMissionDetailDAO">
+	<resultMap type="GoodsMissionDetailBean" id="missionResult">  
+	    <id column="id" property="id" />  
+	    <result column="goods_mission_id" property="goodsMissionId"/>
+	    <result column="goods_id" property="goodsId"/>
+	    <result column="ad_id" property="adId"/>
+	    <result column="ad_question" property="adQuestion"/>
+	    <result column="ad_answer" property="adAnswer"/>
+	    <result column="status" property="status" />
+	</resultMap>
+  <select id="getGoodsMissionDetailList" resultMap="missionResult"  parameterType="Map">
+  	select id
+	, goods_mission_id
+	, goods_id
+	, ad_id
+	, ad_question
+	, ad_answer
+	, status from gglm_goods_mission_detail
+  	where status = #{status} and goods_mission_id = #{goodsMissionId}
+  </select>
+</mapper>

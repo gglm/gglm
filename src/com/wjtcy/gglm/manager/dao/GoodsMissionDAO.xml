@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.GoodsMissionDAO">
+	<resultMap type="GoodsMissionBean" id="missionResult">  
+	    <id column="id" property="id" />  
+	    <result column="goods_id" property="goodsId"/>
+	    <result column="goods_num" property="goodsNum"/>
+	    <result column="is_confirm" property="isConfirm"/>
+	    <result column="start_time" property="startTime"/>
+	    <result column="end_time" property="endTime"/>
+	    <result column="status" property="status" />
+	</resultMap>
+  <select id="getGoodsMissionList" resultMap="missionResult"  parameterType="Map">
+  	select id
+	, goods_id
+	, goods_num
+	, is_confirm
+	, start_time
+	, end_time
+	, status from gglm_goods_mission
+  	where is_confirm = #{isConfirm} and status = #{status} 
+  	<![CDATA[ and start_time <= timeNow and end_time >= timeNow ]]> 
+  </select>
+</mapper>
