@@ -49,4 +49,11 @@ public class Index2Controller {
 		modelMap.put("goodsDetail", goods) ;
 		return "goods/goodsDetail" ;
 	}
+	
+	@RequestMapping("goodsMission.html")
+	public String goodsMission( HttpServletRequest request,
+			HttpServletResponse response,ModelMap modelMap ){
+		
+		return "mission/goodsMission" ;
+	}
 }

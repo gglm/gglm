@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.AdDetailDAO">
+	<resultMap type="AdDetailBean" id="adDetailResult">  
+	    <id column="id" property="id" />  
+	    <result column="col" property="col"/>  
+	    <result column="content" property="content"/>  
+	    <result column="head_img" property="headImg"/>  
+		<result column="is_confirm" property="isConfirm" />
+		<result column="status" property="status" />
+	</resultMap>
+
+  <select id="getAdDetailById" parameterType="Map" resultMap="adDetailResult">
+  	select id
+		, col
+		, content
+		, head_img
+		, is_confirm
+		, status from gglm_ad_detail
+		 where status=#{status} and is_confirm=#{isConfirm} and id=#{adId}
+  </select>
+</mapper>
