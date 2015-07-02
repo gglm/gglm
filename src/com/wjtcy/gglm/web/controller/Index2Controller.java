@@ -19,7 +19,7 @@ public class Index2Controller {
 	
 	@Resource
 	private GoodsService goodsServiceImpl ;
-
+	
 	@RequestMapping("index.html")
 	public String index(HttpServletRequest request,
 			HttpServletResponse response, ModelMap modelMap) {

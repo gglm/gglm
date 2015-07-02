@@ -11,4 +11,8 @@ public class TimeUtils {
 		int currentTime = (int) ( c / 1000 ) ;
 		return currentTime ;
 	}
+	
+	public static long getCurrentTimeMillis(){
+		return System.currentTimeMillis() ;
+	}
 }

@@ -21,6 +21,6 @@
 	, end_time
 	, status from gglm_goods_mission
   	where is_confirm = #{isConfirm} and status = #{status} 
-  	<![CDATA[ and start_time <= timeNow and end_time >= timeNow ]]> 
+  	<![CDATA[ and start_time <= #{timeNow} and end_time >= #{timeNow} ]]> limit #{offset},#{row}
   </select>
 </mapper>
