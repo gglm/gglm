@@ -1,5 +1,6 @@
 package com.wjtcy.gglm.manager.pay;
 
+import com.wjtcy.gglm.manager.pay.bean.OrderRequest;
 import com.wjtcy.gglm.manager.pay.bean.WeixinPayResult;
 
 /**
@@ -14,7 +15,7 @@ public interface WeixinPayService {
 	/**
 	 * h5 下单请求
 	 */
-	WeixinPayResult  createOrder();
+	WeixinPayResult  createOrder(OrderRequest  request);
 	
 	
 	/**
@@ -25,5 +26,5 @@ public interface WeixinPayService {
 	/**
 	 * h5  支付返回结果请求信息
 	 */
-	WeixinPayResult  payNotify();
+	WeixinPayResult  payNotify(String xml);
 }
