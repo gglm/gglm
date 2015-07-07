@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.wjtcy.gglm.manager.bean.AdDetailBean;
 import com.wjtcy.gglm.manager.bean.GoodsDetailBean;
+import com.wjtcy.gglm.manager.bean.GoodsMissionDetailBean;
 
 public class GoodsMissionShow {
 	
@@ -25,6 +26,8 @@ public class GoodsMissionShow {
 	private GoodsDetailBean goodsDetail ;
 	
 	private List<AdDetailBean> adDetailList ;
+	
+	private List<GoodsMissionDetailBean> goodsMissionDetailList ;
 	
 	public Integer getId() {
 		return id;
@@ -81,6 +84,14 @@ public class GoodsMissionShow {
 	public void setAdDetailList(List<AdDetailBean> adDetailList) {
 		this.adDetailList = adDetailList;
 	}
-	
+
+	public List<GoodsMissionDetailBean> getGoodsMissionDetailList() {
+		return goodsMissionDetailList;
+	}
+
+	public void setGoodsMissionDetailList(
+			List<GoodsMissionDetailBean> goodsMissionDetailList) {
+		this.goodsMissionDetailList = goodsMissionDetailList;
+	}
 	
 }

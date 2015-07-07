@@ -12,7 +12,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="resMenuList.html">
+			<a href="goodsList.html">
 				<i class="fa fa-pencil-square-o"></i>菜单列表
 			</a>
 			<ul>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wjtcy.gglm.manager.dao.OrderInfoDAO">
+
+	<insert id="addOrderInfo" parameterType="OrderInfoBean">
+		<selectKey resultType="int" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+		INSERT INTO gglm_goods_order_info (
+		user_id
+		,goods_id
+		,order_price
+		,money_paid
+		,surplus
+		,purchase_price
+		,purchase_number
+		,mission_id
+		,mission_type
+		,add_time
+		,status
+		)
+		VALUES (#{userId}, #{goodsId}, #{orderPrice},#{moneyPaid}
+		,#{surplus},#{purchasePrice},#{purchaseNumber},#{missionId},#{missionType},#{addTime},#{status})
+	</insert>
+</mapper>

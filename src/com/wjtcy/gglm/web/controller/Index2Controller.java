@@ -27,6 +27,13 @@ public class Index2Controller {
 		return "index";
 	}
 	
+	/**
+	 * 商品列表
+	 * @param request
+	 * @param response
+	 * @param modelMap
+	 * @return
+	 */
 	@RequestMapping("goodsList.html")
 	public String goodsList(HttpServletRequest request,
 			HttpServletResponse response,ModelMap modelMap){
@@ -40,6 +47,13 @@ public class Index2Controller {
 		return "goods/goodsList" ;
 	}
 	
+	/**
+	 * 商品详情
+	 * @param request
+	 * @param response
+	 * @param modelMap
+	 * @return
+	 */
 	@RequestMapping("goodsDetail.html")
 	public String goodsDetail( HttpServletRequest request,
 			HttpServletResponse response,ModelMap modelMap ){
@@ -50,6 +64,13 @@ public class Index2Controller {
 		return "goods/goodsDetail" ;
 	}
 	
+	/**
+	 * 商品任务列表
+	 * @param request
+	 * @param response
+	 * @param modelMap
+	 * @return
+	 */
 	@RequestMapping("goodsMission.html")
 	public String goodsMission( HttpServletRequest request,
 			HttpServletResponse response,ModelMap modelMap ){

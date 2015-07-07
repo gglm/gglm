@@ -46,17 +46,16 @@
 						<div class="about-sDetails">
 							<h3>John Doe</h3>
 							<h4>Chef de cuisine</h4>
-							<div class="a-scl-icons">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-google-plus"></i></a>
-							</div>
 						</div>
 						<div class="about-openBtn">
 							预览
 						</div>
 						<div class="o-person-content">
-							预览内容
+							<table>
+								<tr style="padding:0px" >
+									<td style="padding:0px"><img src="img/team/1-th.jpg" style="width:40px;height:40px;padding:0px" /></td><td></td>
+								</tr>
+							</table>
 						</div>
 					</div>
 
